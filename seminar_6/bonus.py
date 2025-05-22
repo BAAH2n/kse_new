@@ -14,7 +14,7 @@ while balance > 100 and i < 10000:
     ready.append(balance)
     i += 1
 iterations = list(range(1, len(ready) + 1))
-plt.plot(iterations, ready, marker='o', linestyle='-', color='blue')
+plt.plot(iterations, ready, linestyle='-', color='blue')
 plt.title("Зміна балансу після кожної гри")
 plt.xlabel("Номер гри")
 plt.ylabel("Баланс")
