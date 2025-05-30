@@ -1,0 +1,6 @@
+first_data = int(input("Введіть перше число: "))
+second_data = int(input("Введіть друге число: "))
+print (f"{first_data}+{second_data}={first_data+second_data}")
+print (f"{first_data}-{second_data}={first_data-second_data}")
+print (f"{first_data}*{second_data}={first_data*second_data}")
+print (f"{first_data}/{second_data}={first_data/second_data}")
