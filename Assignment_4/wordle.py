@@ -1,56 +1,27 @@
-import random
-
-words = ['apple', 'bread', 'candy', 'dream', 'eagle', 'flame', 'grape', 'house', 'input', 'joker']
-x = random.random()
-y = x * len(words)
-z = int(y)
-secret_word = words[z]
+import modules as m
 
 tries = 6
-wl = len(secret_word)
-w = secret_word
+words = ['apple', 'bread', 'candy', 'dream', 'eagle', 'flame', 'grape', 'house', 'input', 'joker']
+secret_word = m.choose_the_word(words)
+lenght_secret = len(secret_word)
+
 
 print(f"""Welcome to Wordle!"
-Guess the {wl}-letter word. You have {tries} tries.""")
+Guess the {lenght_secret}-letter word. You have {tries} tries.""")
 
 while tries!=0:
-    guess = input("Attempt "+str(7 - tries)+"/6 – Enter guess: ").lower()
-    
-    if len(guess)!=wl:
-        print("Wrong length. Expected", wl)
-        continue
+    guess = input(f"Attempt {(7 - tries)}/6 – Enter guess: ").lower()
 
-    if guess==w:
+    if len(guess)!= lenght_secret:
+        print(f"Wrong length. Expected {lenght_secret}")
+        continue
+    elif guess == secret_word:
         print("You win!!!")
         break
-
-    result=[]; i=0
-    while i<wl:
-        ch = guess[i]
-        if ch==w[i]:
-            result.append('correct')
-        elif ch in w:
-            result.append('present')
-        else:
-            result.append('absent')
-        i+=1
-
-    display=[]
-    j=0
-    while j<wl:
-        s = guess[j]
-        res = result[j]
-        if res=='correct':
-            display.append("["+s.upper()+"]")
-        elif res=='present':
-            display.append("("+s+")")
-        else:
-            display.append(" "+s+" ")
-        j+=1
-
-    junk = ''.join([c for c in display if c])
-    print("Result:", ' '.join(display))
+    else:
+        result = m.check_word (secret_word, lenght_secret, guess)
+    
+    print("Result:", ' '.join(result))
     tries = tries - 1
 else:
-    final = secret_word
-    print("You lose! The word was:", final)
+    print(f"You lose! The word was: {secret_word}")
