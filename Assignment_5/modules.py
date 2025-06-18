@@ -13,5 +13,5 @@ def get_7days_forecast(latitude, longitude):
     response = requests.get(f'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}38&hourly=temperature_2m,wind_speed_10m')
     d = response.json()["hourly"]
     df = pd.DataFrame(data=d)
-    #print(df.to_string(index=False))
+    print(df.to_string(index=False))
     return df

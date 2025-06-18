@@ -1,7 +1,6 @@
 import modules as m
 
-#city = input('Введіть назву вашого міста: ')
-city = "Kyiv"
+city = input('Введіть назву вашого міста: ')
 api_key_ninja = '272d0hkKBLhjV0UHXQ0KkA==qkVfsUZA3foqwmoI'
 
 coordinates = m.get_coordinates(city, api_key_ninja)
